@@ -1,4 +1,5 @@
 const theme = document.getElementById('theme');
+const mode = document.getElementById('mode');
 const transparent = document.getElementById('transparent');
 const code = document.getElementById('embed-code');
 const status = document.getElementById('copy-status');
@@ -9,6 +10,8 @@ function update() {
   const url = new URL(publicRoot);
   url.searchParams.set('embed', '1');
   url.searchParams.set('theme', theme.value);
+  mode.disabled = !['console', 'dungeon'].includes(theme.value);
+  if (!mode.disabled) url.searchParams.set('mode', mode.value === 'light' ? 'light' : 'dark');
   if (transparent.checked) url.searchParams.set('transparent', '1');
   document.getElementById('embed-url').value = url.href;
   const lines = [
@@ -29,6 +32,7 @@ function update() {
 }
 
 theme.addEventListener('change', update);
+mode.addEventListener('change', update);
 transparent.addEventListener('change', update);
 document.getElementById('copy').addEventListener('click', async () => {
   const currentCode = code.value;

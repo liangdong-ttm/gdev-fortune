@@ -26,9 +26,23 @@ test('显式选择经典版会移除默认主题标记', () => {
   assert.equal(resolveTheme('?embed=1&theme=classic'), undefined);
 });
 
-test('七种主题均支持独立链接', () => {
-  for (const theme of ['island', 'farm', 'dungeon', 'cyber', 'pixel', 'wasteland', 'steampunk']) {
+test('八种主题均支持独立链接', () => {
+  for (const theme of ['island', 'farm', 'dungeon', 'cyber', 'pixel', 'wasteland', 'steampunk', 'console']) {
     assert.equal(resolveTheme('?theme=' + theme), theme);
+  }
+});
+
+test('控制台与地牢支持深浅参数，其他皮肤忽略参数', () => {
+  for (const theme of ['console', 'dungeon']) {
+    assert.equal(resolveOptions('?theme=' + theme + '&mode=light').mode, 'light');
+    assert.equal(resolveOptions('?embed=1&theme=' + theme + '&mode=light&transparent=1').mode, 'light');
+    for (const suffix of ['', '&mode=dark', '&mode=', '&mode=auto', '&mode=%3Cscript%3E']) {
+      assert.equal(resolveOptions('?theme=' + theme + suffix).mode, 'dark');
+    }
+  }
+  assert.equal(resolveOptions('?mode=light').mode, 'light');
+  for (const theme of ['classic', 'island', 'farm', 'cyber', 'pixel', 'wasteland', 'steampunk']) {
+    assert.equal(resolveOptions('?theme=' + theme + '&mode=light').mode, undefined);
   }
 });
 
@@ -50,7 +64,7 @@ test('对比页主题与样式一致，已移除星愿风格', () => {
   const gallery = readFileSync(new URL('../public/styles.html', import.meta.url), 'utf8');
   const styles = readFileSync(new URL('../public/themes.css', import.meta.url), 'utf8');
   const themes = [...gallery.matchAll(/<iframe src="[.][/][?]theme=([a-z]+)"/g)].map(match => match[1]);
-  assert.equal(new Set(themes).size, 8);
+  assert.equal(new Set(themes).size, 9);
   for (const theme of themes) {
     if (theme === 'classic') {
       assert.equal(resolveTheme('?theme=' + theme), undefined);

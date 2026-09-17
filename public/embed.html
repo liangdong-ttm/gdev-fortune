@@ -20,12 +20,18 @@
       <select id="theme">
         <option value="classic">经典老黄历</option>
         <option value="island">岛屿生活</option>
-        <option value="farm">温暖农场</option>
+        <option value="farm">日式校园 · 暮樱手记（暗色）</option>
         <option value="dungeon" selected>暗黑地牢（默认）</option>
         <option value="cyber">赛博</option>
         <option value="pixel">像素</option>
         <option value="wasteland">废土</option>
         <option value="steampunk">蒸汽朋克</option>
+        <option value="console">控制台 · 开发者便签</option>
+      </select>
+      <label for="mode">配色（控制台、暗黑地牢支持）</label>
+      <select id="mode">
+        <option value="dark" selected>深色</option>
+        <option value="light">浅色</option>
       </select>
       <label class="check"><input id="transparent" type="checkbox"> 外围背景透明（卡片本身保留主题底色）</label>
       <label for="embed-url">嵌入链接</label>
@@ -40,6 +46,7 @@
         <dt>theme=dungeon</dt><dd>选择主题；不传或无法识别时使用暗黑地牢。经典版使用 theme=classic。</dd>
         <dt>embed=1</dt><dd>卡片适应 iframe 宽度，减少外围空白，底部仅保留娱乐提示。</dd>
         <dt>transparent=1</dt><dd>仅内嵌模式生效，让外围背景透明，不改变卡片配色。</dd>
+        <dt>mode=light</dt><dd>控制台、暗黑地牢支持；light 为浅色，dark 为深色，不传默认深色。由宿主页面切换参数，不自动跟随系统。</dd>
       </dl>
       <p class="note">建议宽度至少 280px。示例最大宽度 380px、高度 820px；高度由宿主网站控制，文案变长时可在框内滚动。需要更完整的展示，可增大 height。</p>
       <p class="note">请在支持 iframe 的网页或自定义 HTML 区域粘贴。普通 GitHub README 无法直接运行这个内嵌工具。若网站设置了内容安全策略，需允许日签域名；若使用 sandbox，至少允许 scripts 和 same-origin。</p>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" fill="none">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="720" gradientUnits="userSpaceOnUse"><stop stop-color="#171522"/><stop offset=".45" stop-color="#463341"/><stop offset=".68" stop-color="#61443f"/><stop offset="1" stop-color="#11121c"/></linearGradient>
+    <radialGradient id="dusk"><stop stop-color="#b08265" stop-opacity=".22"/><stop offset="1" stop-color="#7d5961" stop-opacity="0"/></radialGradient>
+    <linearGradient id="shade" x2="0" y2="720" gradientUnits="userSpaceOnUse"><stop stop-color="#11111b" stop-opacity=".1"/><stop offset="1" stop-color="#0d0e17" stop-opacity=".88"/></linearGradient>
+    <pattern id="windows" width="44" height="58" patternUnits="userSpaceOnUse"><path d="M12 12h13v23H12z" fill="#aa8569" opacity=".22"/><path d="M18 12v23m-6-12h13" stroke="#171923" stroke-width="2"/></pattern>
+    <g id="bloom" fill="#a67189"><path d="M0 0C-17-6-13-18-5-14L0-9 5-14C13-18 17-6 0 0Z"/><path d="M0 0C-17-6-13-18-5-14L0-9 5-14C13-18 17-6 0 0Z" transform="rotate(72)"/><path d="M0 0C-17-6-13-18-5-14L0-9 5-14C13-18 17-6 0 0Z" transform="rotate(144)"/><path d="M0 0C-17-6-13-18-5-14L0-9 5-14C13-18 17-6 0 0Z" transform="rotate(216)"/><path d="M0 0C-17-6-13-18-5-14L0-9 5-14C13-18 17-6 0 0Z" transform="rotate(288)"/><circle r="2" fill="#c5a182"/></g>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h960v720H0z"/>
+  <ellipse cx="290" cy="310" rx="450" ry="230" fill="url(#dusk)"/>
+  <path d="M0 327 170 305l135 18 125-31 166 20 180-44 184 26v426H0z" fill="#20202a"/>
+  <path d="M119 401h302v217H119zm420-36h306v253H539z" fill="#282631"/>
+  <path d="m89 402 185-80 184 80zm416-37 166-77 212 77z" fill="#151822"/>
+  <path d="M132 422h276v175H132zm424-40h276v215H556z" fill="url(#windows)"/>
+  <path d="M428 302h105v316H428z" fill="#252430"/><path d="m415 305 66-100 66 100z" fill="#141621"/>
+  <path d="M481 206v-45m-64 149h128" stroke="#171822" stroke-width="5"/>
+  <circle cx="481" cy="345" r="24" fill="#8d7b70" opacity=".5"/><circle cx="481" cy="345" r="20" stroke="#b0a088" opacity=".45"/>
+  <path d="M481 329v17l11 7m-46 41h71v213h-71z" stroke="#111722" stroke-width="3"/><path d="M457 411h48v168h-48z" fill="url(#windows)"/>
+  <path d="M0 604c202-36 328-13 462-1s309-47 498-28v145H0z" fill="#151821"/>
+  <path d="M0 0c40 128 30 220 66 365s24 228 0 355H0zM22 154 155 80 311 21M33 206l181-41 136-68M960 0c-53 124-26 220-56 365s-23 244 12 355h44zM926 163 775 79 652 23M920 234l-166-52-115-74" fill="#11121b" stroke="#11121b" stroke-width="18"/>
+  <path d="m149 79 50-57m14 144 42-65m520-21-23-53m4 157-27-61" stroke="#1c1924" stroke-width="5"/>
+  <g opacity=".6"><use href="#bloom" transform="translate(140 87) scale(1.1)"/><use href="#bloom" transform="translate(182 49) scale(.7)"/><use href="#bloom" transform="translate(217 59) scale(.9)"/><use href="#bloom" transform="translate(258 40) scale(.7)"/><use href="#bloom" transform="translate(235 146) scale(.8)"/><use href="#bloom" transform="translate(296 126) scale(.6)"/><use href="#bloom" transform="translate(786 100) scale(1.1)"/><use href="#bloom" transform="translate(727 65) scale(.8)"/><use href="#bloom" transform="translate(686 39) scale(.6)"/><use href="#bloom" transform="translate(735 161) scale(.7)"/></g>
+  <g fill="#b67c94" opacity=".55"><path d="M180 278q18-3 9 13-14 0-9-13m556 45q18-3 9 13-14 0-9-13M95 486q18-3 9 13-14 0-9-13m725 77q18-3 9 13-14 0-9-13M353 162q12-5 8 8-12 3-8-8m275 72q12-5 8 8-12 3-8-8M291 564q12-5 8 8-12 3-8-8"/></g>
+  <path fill="url(#shade)" d="M0 0h960v720H0z"/>
+</svg>

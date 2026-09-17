@@ -2,3 +2,5 @@ html[data-embed] body { min-height: 0; padding: 8px; }
 html[data-embed] .container { width: 100%; max-width: none; margin: 0; box-shadow: none; background-color: var(--paper, #fff); }
 html[data-embed] .container > footer { margin: 16px 12px 12px; color: var(--muted, #777); font-size: 11px; }
 html[data-embed][data-transparent], html[data-embed][data-transparent] body { background: transparent; }
+html[data-theme="console"][data-embed] body { padding: 0; }
+html[data-theme="console"][data-embed] .container { border: 0; border-radius: 0; }

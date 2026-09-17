@@ -44,9 +44,10 @@
 
 | 参数 | 含义 |
 | --- | --- |
-| theme | classic、island、farm、dungeon、cyber、pixel、wasteland、steampunk；缺省或未知值使用暗黑地牢，经典版需显式传 classic |
+| theme | classic、island、farm、dungeon、cyber、pixel、wasteland、steampunk、console；缺省或未知值使用暗黑地牢，经典版需显式传 classic |
 | embed=1 | 内嵌模式：适应 iframe 宽度、减少外围空白，底部仅保留娱乐提示 |
 | transparent=1 | 仅配合 embed=1 使用；外围背景透明，卡片本身保持主题配色 |
+| mode=light / mode=dark | 控制台和暗黑地牢支持浅色／深色；缺省、空值或未知值按深色处理，其他皮肤忽略此参数 |
 
 - iframe 的宽高由宿主页面设置，不接受任意 CSS/HTML 参数；建议宽度不小于 280px。
 - 内容每天不同，固定高度不足时保留框内滚动，不会截断；可自行增大 height。
@@ -58,11 +59,29 @@
 
 ### 样式与内容
 
-样式对比页：styles.html。默认首页使用暗黑地牢，经典老黄历通过 ?theme=classic 选择；通过 ?theme=island、farm、dungeon、cyber、pixel、wasteland、steampunk
-分别预览岛屿生活（动森氛围启发）、温暖农场、暗黑地牢、赛博、像素、废土与蒸汽朋克。
+控制台配套皮肤使用 theme=console：炭灰底、黄色强调、绿色宜与红色不宜，无装饰背景。
+浅色控制台使用 ?embed=1&theme=console&mode=light，白底、浅灰分隔，绿色／红色文本加深以保持可读性。
+浅色命运契约使用 ?embed=1&theme=dungeon&mode=light，浅羊皮纸、暗金边框、橄榄绿与砖红。
+深色均使用 mode=dark（也可省略）。配色参数不改变当日内容，且不自动跟随系统偏好。
+console-demo.html 提供基于截图的独立搭配演示，点击右下角「今日日签」打开悬浮弹窗。
+演示页右上角「深色」勾选框会同步更新宿主与日签配色；console-demo.html?mode=light 可直接预览浅色搭配。
+支持关闭按钮、Esc 和点击外部关闭，关闭后焦点返回入口；小屏幕限制弹窗高度，日签内部可以滚动。
+演示页面不读取真实 Maker 项目，也不执行构建。弹窗由宿主页面管理，日签 iframe 只负责内容。
+接入真实控制台时，将宿主的 iframe 地址设为本站首页并加上 ?embed=1&theme=console。
+宿主切换深浅模式时，更新 iframe 的 src 中的 mode 参数即可；这会重新加载日签，但当天内容不变。
+例如使用 new URL(iframe.src)，通过 searchParams.set('mode', isDark ? 'dark' : 'light') 修改后赋回 iframe.src。
+无需加载演示页面的模拟控制台布局；可参考 console-demo.js 中的开关逻辑及 console-demo.css 中的弹窗样式。
+内嵌页面按 Esc 时向父窗口发送仅含 type: gdev-fortune:escape 的通知，不携带用户数据。
+因为宿主域名不固定，通知使用通配目标；宿主必须同时校验 event.source 是自己的 iframe.contentWindow、
+event.origin 等于 iframe URL 的 origin，以及消息类型，才能执行关闭。演示已包含这些校验。
+
+样式对比页：styles.html，预览框随内容和宽度自动调整高度，避免底部大块空白；不改变第三方 iframe 的高度设置。
+默认首页使用暗黑地牢，经典老黄历通过 ?theme=classic 选择；通过 ?theme=island、farm、dungeon、cyber、pixel、wasteland、steampunk
+分别预览岛屿生活（动森氛围启发）、日式校园·暮樱手记（暗色）、暗黑地牢、赛博、像素、废土与蒸汽朋克。
+原农场皮肤已替换为暗色校园樱花风格，保留 theme=farm 参数，已有内嵌链接无需修改。
 全部为原创界面，未使用游戏官方角色、标志或素材。主题仅改变外观，不影响每日内容。
 星愿风格已移除，旧 ?theme=anime 链接回到默认暗黑地牢。
-经典版说明文字使用 12px 字号，允许自然换行，不截断文案。主题不加载外部字体或图片。
+经典版说明文字使用 12px 字号，允许自然换行，不截断文案。主题不加载外部字体或第三方图片；校园剪影与樱花装饰使用本站原创 SVG。
 
 修改 public/activities.js 中的事项、宜忌解释及周末标记；变更内容库会改变日期对应的抽取结果。
 public/specials.js 维护日期彩蛋：星期四（四组文案逐周轮换）、3 月 9 日初音日、3 月 10 日马力欧日、

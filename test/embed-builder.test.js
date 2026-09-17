@@ -26,8 +26,8 @@ function createBuilder(href, clipboard) {
 
 test('本地预览用本地资源，生成代码始终引用正式 Pages 地址', () => {
   const element = createBuilder('http://localhost:4173/embed.html');
-  assert.equal(element('embed-url').value, 'https://liangdong-ttm.github.io/gdev-fortune/?embed=1&theme=dungeon');
-  assert.equal(element('preview').src, 'http://localhost:4173/?embed=1&theme=dungeon');
+  assert.equal(element('embed-url').value, 'https://liangdong-ttm.github.io/gdev-fortune/?embed=1&theme=dungeon&mode=dark');
+  assert.equal(element('preview').src, 'http://localhost:4173/?embed=1&theme=dungeon&mode=dark');
   assert.ok(element('embed-code').value.includes('?embed=1&amp;theme=dungeon'));
   assert.ok(!element('embed-code').value.includes('localhost'));
   assert.ok(element('address-note').textContent.includes('请先将此版本发布'));
@@ -43,6 +43,24 @@ test('更换主题和透明设置时同步更新代码与预览，关闭后清�
   element('transparent').checked = false;
   element('transparent').handlers.change();
   assert.ok(!element('embed-url').value.includes('transparent'));
+});
+
+test('深浅选项随支持的皮肤启用，输出链接和预览保持一致', () => {
+  const element = createBuilder('http://localhost:4173/embed.html');
+  assert.equal(element('mode').disabled, false);
+  element('mode').value = 'light';
+  element('mode').handlers.change();
+  assert.ok(element('embed-url').value.includes('theme=dungeon&mode=light'));
+  element('theme').value = 'console';
+  element('transparent').checked = true;
+  element('theme').handlers.change();
+  assert.ok(element('embed-url').value.includes('theme=console&mode=light&transparent=1'));
+  assert.ok(element('preview').src.endsWith('?embed=1&theme=console&mode=light&transparent=1'));
+  assert.ok(element('embed-code').value.includes('theme=console&amp;mode=light'));
+  element('theme').value = 'island';
+  element('theme').handlers.change();
+  assert.equal(element('mode').disabled, true);
+  assert.ok(!element('embed-url').value.includes('mode='));
 });
 
 test('复制成功提供提示，剪贴板不可用则选中文本供手动复制', async () => {

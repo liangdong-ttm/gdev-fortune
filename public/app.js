@@ -41,4 +41,9 @@ document.addEventListener('visibilitychange', () => {
   if (!document.hidden) refresh();
 });
 window.addEventListener('focus', refresh);
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !event.defaultPrevented && document.documentElement.dataset.embed && window.parent !== window) {
+    window.parent.postMessage({ type: 'gdev-fortune:escape' }, '*');
+  }
+});
 refresh();

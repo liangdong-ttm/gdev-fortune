@@ -35,6 +35,35 @@ html[data-theme] .tips { margin: 18px; padding-top: 4px; border-top: 1px solid v
 html[data-theme] #direction, html[data-theme] #inspiration { color: var(--accent); }
 html[data-theme] footer { margin: 24px 18px 20px; font-size: 10px; line-height: 1.6; color: var(--muted); }
 
+html[data-theme="console"] {
+  color-scheme: dark;
+  --page: #202424; --paper: #252929; --ink: #e7eae7; --muted: #aeb8b2;
+  --accent: #f5df4b; --edge: #414747; --shadow: 0 12px 32px #0004;
+  --good-paper: transparent; --good-label: transparent; --good-ink: #62dfb5;
+  --bad-paper: transparent; --bad-label: transparent; --bad-ink: #ff958a;
+  --console-band: #2b3030; --console-date: #c9cfca; --console-footer: #909d95;
+}
+html[data-theme="console"][data-mode="light"] {
+  color-scheme: light;
+  --page: #f3f6f4; --paper: #fff; --ink: #27332e; --muted: #5c6b63;
+  --accent: #886900; --edge: #dce2de; --shadow: 0 12px 32px #243a2414;
+  --good-ink: #127654; --bad-ink: #b43b32;
+  --console-band: #f3f6f4; --console-date: #4e5d54; --console-footer: #68786e;
+}
+html[data-theme="console"] body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft Yahei", sans-serif; }
+html[data-theme="console"] .container { border-radius: 6px; }
+html[data-theme="console"] .date { margin: 16px; padding: 7px 10px; border: 0; border-left: 3px solid #f5df4b; color: var(--console-date); text-align: left; font-size: 12px; font-weight: 500; background: var(--console-band); }
+html[data-theme="console"] .fortune { grid-template-columns: 36px minmax(0, 1fr); margin: 0 16px 12px; border: 0; border-bottom: 1px solid var(--edge); }
+html[data-theme="console"] .fortune h2 { align-items: flex-start; justify-content: flex-start; padding-top: 9px; font-size: 15px; font-weight: 600; }
+html[data-theme="console"] .fortune ul { margin: 8px 0 0 6px; }
+html[data-theme="console"] .fortune li { margin-bottom: 12px; }
+html[data-theme="console"] .name { font-size: 14px; line-height: 1.5; font-weight: 600; }
+html[data-theme="console"] .description { margin-top: 2px; line-height: 1.5; }
+html[data-theme="console"] .tips { margin: 12px 16px; border: 0; padding: 0; color: var(--muted); font-size: 12px; }
+html[data-theme="console"] .tips strong { font-weight: 400; }
+html[data-theme="console"] #direction { color: var(--good-ink); font-weight: 500; }
+html[data-theme="console"] footer { margin: 16px; padding-top: 12px; border-top: 1px solid var(--edge); color: var(--console-footer); font-size: 11px; }
+
 html[data-theme="island"] {
   --page: #bce3ce; --paper: #fffbeb; --ink: #4d6651; --muted: #76836a;
   --accent: #377f68; --edge: #d8dfbb; --shadow: 0 8px 0 #6b9b792e, 0 20px 50px #42816920;
@@ -53,20 +82,40 @@ html[data-theme="island"] .tips { border: 0; background: #f4efda; padding: 10px 
 html[data-theme="island"] footer { text-align: center; }
 
 html[data-theme="farm"] {
-  --page: #a9bd78; --paper: #fff0c6; --ink: #664c2c; --muted: #8b7148;
-  --accent: #895830; --edge: #cfaa6b; --shadow: 5px 7px 0 #50683970;
-  --good-paper: #eef0bd; --good-label: #bccb7e; --good-ink: #526333;
-  --bad-paper: #f9dfb4; --bad-label: #e0af72; --bad-ink: #77532d;
+  --page: #11111b; --paper: #1d1a27; --ink: #e2d6d5; --muted: #b3a5b5;
+  --accent: #ce9bb2; --edge: #625363; --shadow: 0 18px 55px #07070e99;
+  --good-paper: #2a2232; --good-label: #3e2e42; --good-ink: #e1b8cb;
+  --bad-paper: #211f30; --bad-label: #302c43; --bad-ink: #bcb0d7;
 }
-html[data-theme="farm"] body { background-image: radial-gradient(circle at 18% 8%, #fff0a988 0 50px, transparent 51px), repeating-linear-gradient(0deg, transparent 0 38px, #77975422 38px 40px); font-family: "Courier New", "Microsoft Yahei", monospace; }
-html[data-theme="farm"] .container { border: 7px ridge #ac7844; border-radius: 4px; }
-html[data-theme="farm"] .date { border: 0; margin-bottom: 14px; font-size: 12px; }
-html[data-theme="farm"] .fortune { border: 2px solid #c4a36b; box-shadow: 2px 3px #bb95542b; }
-html[data-theme="farm"] .fortune h2 { border-right: 2px solid #c4a36b; }
-html[data-theme="farm"] .name::before { content: '◇ '; color: #a78345; }
-html[data-theme="farm"] .tips { border-top: 2px dashed #c6a671; padding-top: 10px; }
+html[data-theme="farm"] body {
+  background-image: linear-gradient(#11111b33, #11111b88), url('./assets/sakura-campus.svg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Songti SC", Georgia, serif;
+}
+html[data-theme="farm"] .container {
+  border: 1px solid #8b7480;
+  outline: 1px solid #574859;
+  outline-offset: 4px;
+  border-radius: 2px;
+  background-image: url('./assets/sakura-corners.svg'), linear-gradient(135deg, #50324833, transparent 42%);
+  background-repeat: no-repeat;
+  background-size: 100% auto, 100% 100%;
+}
+html[data-theme="farm"] .date { margin: 18px 22px; padding: 12px 0; border-top: 0; border-bottom: 1px solid #86705d; color: #ccbea4; font-size: 12px; font-weight: normal; }
+html[data-theme="farm"] .fortune { position: relative; border: 1px solid #756078; outline: 1px solid #413747; outline-offset: -4px; border-radius: 2px; }
+html[data-theme="farm"] .fortune::after { content: ''; position: absolute; top: 6px; right: 6px; width: 10px; height: 10px; border-top: 1px solid #b39874; border-right: 1px solid #b39874; pointer-events: none; opacity: .65; }
+html[data-theme="farm"] .bad { border-color: #5b5478; }
+html[data-theme="farm"] .fortune h2 { border-right: 1px solid #645063; font-weight: normal; font-size: 25px; }
+html[data-theme="farm"] .bad h2 { border-color: #514863; }
+html[data-theme="farm"] .name { font-weight: 600; letter-spacing: .5px; }
+html[data-theme="farm"] .description { line-height: 1.6; }
+html[data-theme="farm"] .tips { border-top: 1px solid #77644f; padding-top: 8px; color: #c4b6bb; }
+html[data-theme="farm"] footer { color: #a99aa8; }
 
 html[data-theme="dungeon"] {
+  color-scheme: dark;
   --page: #151719; --paper: #22262a; --ink: #e1d4b9; --muted: #aaa18e;
   --accent: #dfae66; --edge: #54504a; --shadow: 0 16px 50px #0009;
   --good-paper: #292d29; --good-label: #424d3d; --good-ink: #d4c997;
@@ -80,6 +129,21 @@ html[data-theme="dungeon"] .bad { border-left-color: #a35c4c; }
 html[data-theme="dungeon"] .fortune h2 { border-right: 1px solid #66563e; font-weight: normal; }
 html[data-theme="dungeon"] .name { letter-spacing: 1px; }
 html[data-theme="dungeon"] .tips { border-top: 1px solid #68583f; }
+
+html[data-theme="dungeon"][data-mode="light"] {
+  color-scheme: light;
+  --page: #e9e4d8; --paper: #f8f3e8; --ink: #413b32; --muted: #706755;
+  --accent: #856421; --edge: #c9bc9e; --shadow: 0 16px 40px #51452c1f;
+  --good-paper: #edf0df; --good-label: #d5ddbd; --good-ink: #526039;
+  --bad-paper: #f1e4d9; --bad-label: #e3c7b6; --bad-ink: #8e4d41;
+}
+html[data-theme="dungeon"][data-mode="light"] body { background-image: radial-gradient(ellipse at 50% 0%, #fff9e4aa, transparent 65%), repeating-linear-gradient(0deg, transparent 0 70px, #9887650a 70px 72px); }
+html[data-theme="dungeon"][data-mode="light"] .container { border-color: #ac946a; outline-color: #d0c3a3; background-image: radial-gradient(ellipse at center, #fffdf480, transparent); }
+html[data-theme="dungeon"][data-mode="light"] .date { color: #75613c; border-color: #b39d70; }
+html[data-theme="dungeon"][data-mode="light"] .fortune { border-color: #c2b28e; border-left-color: #8e773d; }
+html[data-theme="dungeon"][data-mode="light"] .bad { border-left-color: #995749; }
+html[data-theme="dungeon"][data-mode="light"] .fortune h2 { border-color: #c2b28e; }
+html[data-theme="dungeon"][data-mode="light"] .tips { border-color: #b39d70; }
 
 html[data-theme="cyber"] {
   --page: #080c16; --paper: #0c1322; --ink: #dcebf6; --muted: #8ea3b8;

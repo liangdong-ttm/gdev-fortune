@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>样式试衣间 · gDEV日签</title>
   <link rel="stylesheet" href="./styles-gallery.css">
+  <script type="module" src="./styles-gallery.js"></script>
 </head>
 <body>
   <header>
     <a class="back" href="./">← 返回日签</a>
     <p class="eyebrow">gDEV / STYLE EXPLORATIONS</p>
-    <h1>同一天，八种打开方式。</h1>
-    <p class="intro">内容不变，换个世界开工。保留经典版；新增动森启发的岛屿生活、温暖农场与暗黑地牢。全是可运行的日签，不是效果图。</p>
+    <h1>同一天，九种打开方式。</h1>
+    <p class="intro">内容不变，换个世界开工。从岛屿生活到暮樱校园，默认暗黑地牢。全是可运行的日签，不是效果图。</p>
     <p><a class="back" href="./embed.html">选好样式了？生成网站内嵌代码 →</a></p>
     <nav aria-label="跳转到样式">
       <a href="#classic">00 经典</a><a href="#island">01 岛屿生活</a><a href="#cyber">02 赛博</a>
       <a href="#pixel">03 像素</a><a href="#wasteland">04 废土</a><a href="#steampunk">05 蒸汽朋克</a>
-      <a href="#farm">06 温暖农场</a><a href="#dungeon">07 暗黑地牢</a>
+      <a href="#farm">06 暮樱校园</a><a href="#dungeon">07 暗黑地牢</a>
+      <a href="#console">08 控制台</a>
     </nav>
   </header>
   <main class="gallery">
@@ -45,14 +47,18 @@
       <iframe src="./?theme=steampunk" title="蒸汽朋克风格实时预览" loading="lazy"></iframe>
     </article>
     <article id="farm">
-      <div class="caption"><span>06 / LITTLE FARM</span><h2>温暖农场 · 田园日志</h2><p>木头招牌、麦黄色纸页，今天种下一个小项目。</p><a href="./?theme=farm">单独查看 ↗</a></div>
-      <iframe src="./?theme=farm" title="温暖农场风格实时预览" loading="lazy"></iframe>
+      <div class="caption"><span>06 / SAKURA AFTER DUSK</span><h2>日式校园 · 暮樱手记</h2><p>深紫暮色、暗金细框与零落樱花，放学后的校园有点神秘。</p><a href="./?theme=farm">单独查看 ↗</a></div>
+      <iframe src="./?theme=farm" title="暗色日式校园樱花风格实时预览" loading="lazy"></iframe>
     </article>
     <article id="dungeon">
-      <div class="caption"><span>07 / THE DESCENT · DEFAULT</span><h2>暗黑地牢 · 命运契约（默认）</h2><p>石板、暗金与锈红，领取本日的祝福与诅咒。</p><a href="./?theme=dungeon">单独查看 ↗</a></div>
+      <div class="caption"><span>07 / THE DESCENT · DEFAULT</span><h2>暗黑地牢 · 命运契约（默认）</h2><p>深色石板或浅色羊皮纸，领取本日的祝福与诅咒。</p><a href="./?theme=dungeon">深色 ↗</a> · <a href="./?theme=dungeon&amp;mode=light">浅色 ↗</a></div>
       <iframe src="./?theme=dungeon" title="暗黑地牢风格实时预览" loading="lazy"></iframe>
     </article>
+    <article id="console">
+      <div class="caption"><span>08 / DEVELOPER NOTE</span><h2>控制台 · 开发者便签</h2><p>深浅两种配色，黄色强调与绿红状态字，融入简约控制台。</p><a href="./console-demo.html">悬浮弹窗 ↗</a> · <a href="./?theme=console">深色 ↗</a> · <a href="./?theme=console&amp;mode=light">浅色 ↗</a></div>
+      <iframe src="./?theme=console" title="控制台风格实时预览" loading="lazy"></iframe>
+    </article>
   </main>
-  <footer>全部预览共用当天的日签数据 · 可在预览内滚动，或单独打开查看完整页面<br>游戏氛围启发的原创界面，未使用游戏官方角色、标志或素材，与官方无关联。</footer>
+  <footer>全部预览共用当天的日签数据 · 预览高度随内容自动调整，也可单独打开查看<br>游戏氛围启发的原创界面，未使用游戏官方角色、标志或素材，与官方无关联。</footer>
 </body>
 </html>
