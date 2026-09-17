@@ -11,7 +11,7 @@
   <header>
     <a href="./">← 返回日签</a>
     <h1>把今天的日签，放进你的网站。</h1>
-    <p>选一款风格，复制 iframe。无需下载项目，也不需要安装插件。</p>
+    <p>选一款风格和深浅配色，复制 iframe。无需下载项目，也不需要安装插件。</p>
   </header>
   <main>
     <section class="settings" aria-labelledby="settings-title">
@@ -29,10 +29,11 @@
         <option value="console">控制台 · 开发者便签</option>
       </select>
       <label for="mode">配色（控制台、暗黑地牢支持）</label>
-      <select id="mode">
+      <select id="mode" aria-describedby="mode-note">
         <option value="dark" selected>深色</option>
         <option value="light">浅色</option>
       </select>
+      <p class="note" id="mode-note" role="status"></p>
       <label class="check"><input id="transparent" type="checkbox"> 外围背景透明（卡片本身保留主题底色）</label>
       <label for="embed-url">嵌入链接</label>
       <input id="embed-url" type="url" readonly>
@@ -46,8 +47,14 @@
         <dt>theme=dungeon</dt><dd>选择主题；不传或无法识别时使用暗黑地牢。经典版使用 theme=classic。</dd>
         <dt>embed=1</dt><dd>卡片适应 iframe 宽度，减少外围空白，底部仅保留娱乐提示。</dd>
         <dt>transparent=1</dt><dd>仅内嵌模式生效，让外围背景透明，不改变卡片配色。</dd>
-        <dt>mode=light</dt><dd>控制台、暗黑地牢支持；light 为浅色，dark 为深色，不传默认深色。由宿主页面切换参数，不自动跟随系统。</dd>
+        <dt>mode=dark / mode=light</dt><dd>控制台、暗黑地牢支持；dark 为深色，light 为浅色，不传或值无效时默认深色。其他风格忽略此参数，保持原有配色。不自动跟随系统。</dd>
       </dl>
+      <h2>跟随你的网站切换深浅色</h2>
+      <p class="note">将以下代码接入网站已有的主题切换逻辑：fortuneFrame 是日签 iframe 元素，isDark 是网站当前是否使用深色的布尔值。更新地址会重新加载日签，但不会改变当天内容。</p>
+      <pre><code>const url = new URL(fortuneFrame.src);
+url.searchParams.set('mode', isDark ? 'dark' : 'light');
+fortuneFrame.src = url.href;</code></pre>
+      <p class="note">浅色地牢：<code>?embed=1&amp;theme=dungeon&amp;mode=light</code><br>浅色控制台：<code>?embed=1&amp;theme=console&amp;mode=light</code><br>深色版本将 light 改为 dark 即可。外围透明与深浅配色可同时使用。</p>
       <p class="note">建议宽度至少 280px。示例最大宽度 380px、高度 820px；高度由宿主网站控制，文案变长时可在框内滚动。需要更完整的展示，可增大 height。</p>
       <p class="note">请在支持 iframe 的网页或自定义 HTML 区域粘贴。普通 GitHub README 无法直接运行这个内嵌工具。若网站设置了内容安全策略，需允许日签域名；若使用 sandbox，至少允许 scripts 和 same-origin。</p>
     </section>

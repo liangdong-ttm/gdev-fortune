@@ -11,6 +11,9 @@ function update() {
   url.searchParams.set('embed', '1');
   url.searchParams.set('theme', theme.value);
   mode.disabled = !['console', 'dungeon'].includes(theme.value);
+  document.getElementById('mode-note').textContent = mode.disabled
+    ? '当前风格使用固定配色，不支持深浅切换；生成链接不包含 mode 参数。'
+    : '深色使用 mode=dark，浅色使用 mode=light；链接、HTML 代码和预览会同步更新。';
   if (!mode.disabled) url.searchParams.set('mode', mode.value === 'light' ? 'light' : 'dark');
   if (transparent.checked) url.searchParams.set('transparent', '1');
   document.getElementById('embed-url').value = url.href;

@@ -48,6 +48,7 @@ test('更换主题和透明设置时同步更新代码与预览，关闭后清�
 test('深浅选项随支持的皮肤启用，输出链接和预览保持一致', () => {
   const element = createBuilder('http://localhost:4173/embed.html');
   assert.equal(element('mode').disabled, false);
+  assert.ok(element('mode-note').textContent.includes('mode=light'));
   element('mode').value = 'light';
   element('mode').handlers.change();
   assert.ok(element('embed-url').value.includes('theme=dungeon&mode=light'));
@@ -60,7 +61,12 @@ test('深浅选项随支持的皮肤启用，输出链接和预览保持一致',
   element('theme').value = 'island';
   element('theme').handlers.change();
   assert.equal(element('mode').disabled, true);
+  assert.ok(element('mode-note').textContent.includes('不支持深浅切换'));
   assert.ok(!element('embed-url').value.includes('mode='));
+  element('theme').value = 'dungeon';
+  element('theme').handlers.change();
+  assert.equal(element('mode').disabled, false);
+  assert.ok(element('embed-url').value.includes('theme=dungeon&mode=light'));
 });
 
 test('复制成功提供提示，剪贴板不可用则选中文本供手动复制', async () => {

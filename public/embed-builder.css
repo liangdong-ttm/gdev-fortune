@@ -17,6 +17,9 @@ button { margin-top: 10px; padding: 10px 18px; background: #446f54; color: #fff;
 .note, dd { font-size: 12px; line-height: 1.8; color: #687461; }
 .note { margin: 20px 0; }
 dt { font: 13px/1.8 monospace; }
+pre { max-width: 100%; overflow-x: auto; padding: 12px; border-radius: 6px; background: #e8ebe3; font: 12px/1.8 monospace; }
+.settings { min-width: 0; }
+.note code { overflow-wrap: anywhere; }
 dd { margin: 0 0 12px; }
 .preview-surface { padding: 12px; background-color: #e0e4d9; background-image: conic-gradient(#ffffff66 25%, transparent 0 50%, #ffffff66 0 75%, transparent 0); background-size: 20px 20px; border: 1px solid #c8cfc2; border-radius: 8px; }
 iframe { display: block; width: 100%; max-width: 380px; border: 0; margin: auto; }
