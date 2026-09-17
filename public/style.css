@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #fff; font-family: Consolas, "Microsoft Yahei", Arial, sans-serif; }
+.container { width: 320px; max-width: 100%; margin: 0 auto 50px; }
+h1 { margin: 0 0 10px; padding: 5px 15px; background: #555; color: #bbb; font-size: 18px; }
+h1 small { display: block; margin-top: 2px; font-size: 12px; font-weight: normal; }
+.date { margin: 0; font-size: 17pt; font-weight: bold; line-height: 30pt; text-align: center; }
+.fortune { display: grid; grid-template-columns: 100px minmax(0, 1fr); }
+.fortune h2 { display: flex; align-items: center; justify-content: center; margin: 0; font-size: 30pt; }
+.good { background: #ffffaa; }
+.good h2 { background: #ffee44; }
+.bad { margin-top: 1px; background: #ffddd3; }
+.bad h2 { background: #ff4444; color: #fff; }
+.fortune ul { margin: 10px 10px 0 15px; padding: 0; list-style: none; }
+.fortune li { margin-bottom: 10px; overflow-wrap: anywhere; }
+.name { color: #444; font-size: 15pt; font-weight: bold; line-height: 150%; }
+.description { color: #777; font-size: 11pt; line-height: 110%; }
+.tips { margin-left: 10px; font-size: 11pt; }
+.tips p { margin: 10px 0 0; }
+#direction { color: #4a4; font-weight: bold; }
+#inspiration { color: #f87; }
+footer { margin: 50px 10px 0; font-size: 11pt; color: #999; }
+footer ul { padding-left: 20px; }
+footer li { margin-bottom: 5px; }
+footer a { color: #777; }
