@@ -1,17 +1,19 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dungeon">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="gDEV日签，独立游戏开发者的每日老黄历。写代码、做玩法、发 Demo，开工前看一眼。仅供娱乐。">
-  <meta name="theme-color" content="#555555">
+  <meta name="theme-color" content="#151719">
   <title>gDEV日签 · 独立游戏开发者老黄历</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./themes.css">
+  <link rel="stylesheet" href="./embed.css">
+  <script src="./theme.js"></script>
   <script type="module" src="./app.js"></script>
 </head>
 <body>
-  <main class="container">
-    <h1>gDEV日签<small>独立游戏开发者老黄历</small></h1>
+  <main class="container" aria-label="gDEV日签">
     <p class="date" id="date"></p>
     <section class="fortune good" aria-labelledby="good-title">
       <h2 id="good-title">宜</h2><ul id="good"></ul>
@@ -25,12 +27,7 @@
       <p><strong>灵感降临指数：</strong><span id="inspiration"></span></p>
     </div>
     <noscript><p>请启用 JavaScript，以查看今日宜忌。</p></noscript>
-    <footer><ul>
-      <li>仅供娱乐，开发进度不由黄历决定。</li>
-      <li>按本地日期更新，同一天刷新不变。</li>
-      <li>灵感来自<a href="https://raoshaoquan.github.io/">程序员老黄历</a>，实现与文案重新编写。</li>
-      <li><a href="https://github.com/liangdong-ttm/gdev-fortune">gDEV日签 · GitHub</a></li>
-    </ul></footer>
+    <footer>仅供娱乐，开发进度不由黄历决定。</footer>
   </main>
 </body>
 </html>

@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { activities } from '../public/activities.js';
 import { dateKey, getFortune } from '../public/fortune.js';
 
-test('内容库包含60个唯一事项，每项都有宜忌解释', () => {
-  assert.equal(activities.length, 60);
-  assert.equal(new Set(activities.map(activity => activity.name)).size, 60);
+test('内容库包含48个唯一事项，每项都有宜忌解释', () => {
+  assert.equal(activities.length, 48);
+  assert.equal(new Set(activities.map(activity => activity.name)).size, 48);
   for (const activity of activities) assert.ok(activity.name && activity.good && activity.bad);
 });
 
@@ -28,7 +28,9 @@ test('十年日期覆盖：数量、去重、周末筛选、饮品和星级合�
     assert.ok(fortune.bad.length >= 2 && fortune.bad.length <= 4);
     const picked = [...fortune.good, ...fortune.bad];
     assert.equal(new Set(picked.map(activity => activity.name)).size, picked.length);
-    if ([0, 6].includes(date.getDay())) assert.ok(picked.every(activity => activity.weekend));
+    if ([0, 6].includes(date.getDay())) assert.ok(picked.every(activity => activity.special || activity.weekend));
+    const annualDate = ['3-9', '3-10', '4-1', '10-31'].includes((date.getMonth() + 1) + '-' + date.getDate());
+    assert.equal(picked.filter(activity => activity.special).length, annualDate || date.getDay() === 4 ? 1 : 0);
     assert.equal(new Set(fortune.drinks).size, 2);
     assert.ok(fortune.inspiration >= 1 && fortune.inspiration <= 5);
     assert.ok(fortune.direction);

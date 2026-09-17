@@ -1,0 +1,137 @@
+html[data-theme] body {
+  min-height: 100vh;
+  padding: 24px 12px;
+  color: var(--ink);
+  background: var(--page);
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft Yahei", sans-serif;
+}
+html[data-theme] .container {
+  position: relative;
+  width: 360px;
+  margin: 0 auto 24px;
+  background: var(--paper);
+  border: 1px solid var(--edge);
+  box-shadow: var(--shadow);
+}
+html[data-theme] .date {
+  margin: 16px 16px 18px;
+  padding: 10px 0;
+  border-top: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  font-size: 13px;
+  line-height: 1.5;
+}
+html[data-theme] .fortune { grid-template-columns: 58px minmax(0, 1fr); margin: 0 14px 12px; border: 1px solid var(--edge); }
+html[data-theme] .fortune h2 { font-size: 26px; }
+html[data-theme] .good { background: var(--good-paper); }
+html[data-theme] .good h2 { color: var(--good-ink); background: var(--good-label); }
+html[data-theme] .bad { background: var(--bad-paper); }
+html[data-theme] .bad h2 { color: var(--bad-ink); background: var(--bad-label); }
+html[data-theme] .fortune ul { margin: 12px 12px 0; }
+html[data-theme] .fortune li { margin-bottom: 12px; }
+html[data-theme] .name { color: var(--ink); font-size: 16px; line-height: 1.5; }
+html[data-theme] .description { color: var(--muted); font-size: 12px; line-height: 1.5; }
+html[data-theme] .tips { margin: 18px; padding-top: 4px; border-top: 1px solid var(--edge); font-size: 12px; line-height: 1.6; }
+html[data-theme] #direction, html[data-theme] #inspiration { color: var(--accent); }
+html[data-theme] footer { margin: 24px 18px 20px; font-size: 10px; line-height: 1.6; color: var(--muted); }
+
+html[data-theme="island"] {
+  --page: #bce3ce; --paper: #fffbeb; --ink: #4d6651; --muted: #76836a;
+  --accent: #377f68; --edge: #d8dfbb; --shadow: 0 8px 0 #6b9b792e, 0 20px 50px #42816920;
+  --good-paper: #f0f5df; --good-label: #d7e8af; --good-ink: #587438;
+  --bad-paper: #fff0d9; --bad-label: #f1d39e; --bad-ink: #916a33;
+}
+html[data-theme="island"] body {
+  background-image: radial-gradient(ellipse at 20% 0%, #e9f5d2 0, transparent 60%), repeating-radial-gradient(ellipse at 50% -80px, transparent 0 28px, #ffffff28 29px 31px, transparent 32px 60px);
+  font-family: "Arial Rounded MT Bold", "Hiragino Maru Gothic ProN", "Microsoft Yahei", sans-serif;
+}
+html[data-theme="island"] .container { border: 5px solid #fff8dc; border-radius: 28px; }
+html[data-theme="island"] .date { border: 0; width: fit-content; max-width: calc(100% - 28px); padding: 7px 12px; margin: 16px auto; background: #f0e5bf; color: #837348; border-radius: 20px; font-size: 12px; }
+html[data-theme="island"] .fortune { border: 2px dashed #d6dcbc; border-radius: 18px; overflow: hidden; }
+html[data-theme="island"] .fortune h2 { font-weight: 500; font-size: 25px; }
+html[data-theme="island"] .tips { border: 0; background: #f4efda; padding: 10px 14px 14px; border-radius: 17px; }
+html[data-theme="island"] footer { text-align: center; }
+
+html[data-theme="farm"] {
+  --page: #a9bd78; --paper: #fff0c6; --ink: #664c2c; --muted: #8b7148;
+  --accent: #895830; --edge: #cfaa6b; --shadow: 5px 7px 0 #50683970;
+  --good-paper: #eef0bd; --good-label: #bccb7e; --good-ink: #526333;
+  --bad-paper: #f9dfb4; --bad-label: #e0af72; --bad-ink: #77532d;
+}
+html[data-theme="farm"] body { background-image: radial-gradient(circle at 18% 8%, #fff0a988 0 50px, transparent 51px), repeating-linear-gradient(0deg, transparent 0 38px, #77975422 38px 40px); font-family: "Courier New", "Microsoft Yahei", monospace; }
+html[data-theme="farm"] .container { border: 7px ridge #ac7844; border-radius: 4px; }
+html[data-theme="farm"] .date { border: 0; margin-bottom: 14px; font-size: 12px; }
+html[data-theme="farm"] .fortune { border: 2px solid #c4a36b; box-shadow: 2px 3px #bb95542b; }
+html[data-theme="farm"] .fortune h2 { border-right: 2px solid #c4a36b; }
+html[data-theme="farm"] .name::before { content: '◇ '; color: #a78345; }
+html[data-theme="farm"] .tips { border-top: 2px dashed #c6a671; padding-top: 10px; }
+
+html[data-theme="dungeon"] {
+  --page: #151719; --paper: #22262a; --ink: #e1d4b9; --muted: #aaa18e;
+  --accent: #dfae66; --edge: #54504a; --shadow: 0 16px 50px #0009;
+  --good-paper: #292d29; --good-label: #424d3d; --good-ink: #d4c997;
+  --bad-paper: #312729; --bad-label: #633a36; --bad-ink: #ebc3a6;
+}
+html[data-theme="dungeon"] body { background-image: radial-gradient(ellipse at 50% 0%, #66422e55, transparent 60%), repeating-linear-gradient(0deg, transparent 0 70px, #ffffff04 70px 72px); font-family: Georgia, "Songti SC", serif; }
+html[data-theme="dungeon"] .container { border: 1px solid #746045; outline: 1px solid #3f3b35; outline-offset: 5px; }
+html[data-theme="dungeon"] .date { border: 0; border-bottom: 1px solid #68583f; font-weight: normal; color: #b5a387; }
+html[data-theme="dungeon"] .fortune { border: 1px solid #66563e; border-left: 3px solid #ae955b; }
+html[data-theme="dungeon"] .bad { border-left-color: #a35c4c; }
+html[data-theme="dungeon"] .fortune h2 { border-right: 1px solid #66563e; font-weight: normal; }
+html[data-theme="dungeon"] .name { letter-spacing: 1px; }
+html[data-theme="dungeon"] .tips { border-top: 1px solid #68583f; }
+
+html[data-theme="cyber"] {
+  --page: #080c16; --paper: #0c1322; --ink: #dcebf6; --muted: #8ea3b8;
+  --accent: #69f8dc; --edge: #2b4354; --shadow: 8px 8px 0 #00d8b512, 0 0 35px #00f0c50a;
+  --good-paper: #0d222a; --good-label: #103b40; --good-ink: #69f8dc;
+  --bad-paper: #26192d; --bad-label: #44213f; --bad-ink: #ff86d0;
+}
+html[data-theme="cyber"] body { background-image: linear-gradient(#3b688512 1px, transparent 1px), linear-gradient(90deg, #3b688512 1px, transparent 1px); background-size: 24px 24px; }
+html[data-theme="cyber"] .container { border-top: 3px solid #69f8dc; }
+html[data-theme="cyber"] .date { color: #69f8dc; border-bottom-style: dashed; font-family: monospace; }
+html[data-theme="cyber"] .fortune { border-left: 2px solid #69f8dc; }
+html[data-theme="cyber"] .bad { border-left-color: #ff86d0; }
+html[data-theme="cyber"] .fortune h2 { text-shadow: 0 0 12px currentColor; }
+html[data-theme="cyber"] .tips { padding: 12px; margin: 18px 14px; background: repeating-linear-gradient(0deg, #69f8dc03 0 2px, transparent 2px 4px); border: 1px solid #2b4354; }
+
+html[data-theme="pixel"] {
+  --page: #c7dec2; --paper: #f7f4da; --ink: #303c2b; --muted: #647054;
+  --accent: #38583c; --edge: #3d4d34; --shadow: 6px 6px 0 #6e8c61;
+  --good-paper: #e8efca; --good-label: #b3cd81; --good-ink: #344728;
+  --bad-paper: #f6e6c6; --bad-label: #e4b574; --bad-ink: #60462c;
+}
+html[data-theme="pixel"] body { background-image: linear-gradient(45deg, #aac39f55 25%, transparent 25%, transparent 75%, #aac39f55 75%), linear-gradient(45deg, #aac39f55 25%, transparent 25%, transparent 75%, #aac39f55 75%); background-size: 16px 16px; background-position: 0 0, 8px 8px; font-family: "Courier New", "Microsoft Yahei", monospace; }
+html[data-theme="pixel"] .container { border: 4px solid #3d4d34; }
+html[data-theme="pixel"] .date { border: 0; margin-top: 14px; font-weight: 700; }
+html[data-theme="pixel"] .fortune { border: 2px solid #3d4d34; box-shadow: 3px 3px 0 #3d4d3433; }
+html[data-theme="pixel"] .fortune h2 { border-right: 2px solid #3d4d34; }
+html[data-theme="pixel"] .name::before { content: '▸ '; color: #6c814d; }
+html[data-theme="pixel"] .tips { border-top: 2px dashed #73815b; }
+
+html[data-theme="wasteland"] {
+  --page: #292923; --paper: #ddd3b7; --ink: #3e3b2e; --muted: #726955;
+  --accent: #80503b; --edge: #a69b7c; --shadow: 7px 9px 0 #12171180;
+  --good-paper: #d2d1b2; --good-label: #727952; --good-ink: #f1ecd4;
+  --bad-paper: #dac5a8; --bad-label: #935e45; --bad-ink: #fff0d8;
+}
+html[data-theme="wasteland"] body { background-image: repeating-linear-gradient(120deg, transparent 0 80px, #a4997710 80px 81px); }
+html[data-theme="wasteland"] .container { border: 0; outline: 1px solid #a69b7c; outline-offset: -7px; background-image: repeating-linear-gradient(0deg, transparent 0 3px, #6d5d3610 3px 4px); }
+html[data-theme="wasteland"] .date { border-top: 0; border-bottom: 1px dashed #8d8265; padding-top: 14px; }
+html[data-theme="wasteland"] .fortune { border: 1px dashed #8d8265; }
+html[data-theme="wasteland"] .fortune h2 { font-family: Georgia, "Songti SC", serif; }
+html[data-theme="wasteland"] .tips { border-top: 5px solid; border-image: repeating-linear-gradient(135deg, #726b45 0 7px, #c7b37a 7px 14px) 5; }
+
+html[data-theme="steampunk"] {
+  --page: #302924; --paper: #efe2c7; --ink: #513b29; --muted: #887154;
+  --accent: #815526; --edge: #bc9b65; --shadow: 0 12px 36px #120d0a80;
+  --good-paper: #e4e1c5; --good-label: #7a8060; --good-ink: #fff1c9;
+  --bad-paper: #eddbc2; --bad-label: #9b6848; --bad-ink: #fff1c9;
+}
+html[data-theme="steampunk"] body { background-image: radial-gradient(circle, #b9965420 1px, transparent 1px); background-size: 12px 12px; font-family: Georgia, "Songti SC", "SimSun", serif; }
+html[data-theme="steampunk"] .container { border: 4px double #af8951; outline: 1px solid #765735; outline-offset: 4px; background-image: radial-gradient(ellipse at center, #fff9e580, transparent); }
+html[data-theme="steampunk"] .date { border-top: 3px double #b99a68; border-bottom: 3px double #b99a68; }
+html[data-theme="steampunk"] .fortune { position: relative; border: 3px double #af8951; border-radius: 6px; }
+html[data-theme="steampunk"] .fortune::after { content: ''; position: absolute; right: 4px; top: 4px; width: 4px; height: 4px; border-radius: 50%; background: #ae8955; box-shadow: 0 1px 1px #604420; }
+html[data-theme="steampunk"] .fortune h2 { border-right: 3px double #bc9b65; }
+html[data-theme="steampunk"] .tips { border-top: 3px double #b99a68; }
