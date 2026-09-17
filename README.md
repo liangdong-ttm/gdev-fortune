@@ -63,17 +63,13 @@
 浅色控制台使用 ?embed=1&theme=console&mode=light，白底、浅灰分隔，绿色／红色文本加深以保持可读性。
 浅色命运契约使用 ?embed=1&theme=dungeon&mode=light，浅羊皮纸、暗金边框、橄榄绿与砖红。
 深色均使用 mode=dark（也可省略）。配色参数不改变当日内容，且不自动跟随系统偏好。
-console-demo.html 提供基于截图的独立搭配演示，点击右下角「今日日签」打开悬浮弹窗。
-演示页右上角「深色」勾选框会同步更新宿主与日签配色；console-demo.html?mode=light 可直接预览浅色搭配。
-支持关闭按钮、Esc 和点击外部关闭，关闭后焦点返回入口；小屏幕限制弹窗高度，日签内部可以滚动。
-演示页面不读取真实 Maker 项目，也不执行构建。弹窗由宿主页面管理，日签 iframe 只负责内容。
+弹窗由宿主页面管理，日签 iframe 只负责内容。
 接入真实控制台时，将宿主的 iframe 地址设为本站首页并加上 ?embed=1&theme=console。
 宿主切换深浅模式时，更新 iframe 的 src 中的 mode 参数即可；这会重新加载日签，但当天内容不变。
 例如使用 new URL(iframe.src)，通过 searchParams.set('mode', isDark ? 'dark' : 'light') 修改后赋回 iframe.src。
-无需加载演示页面的模拟控制台布局；可参考 console-demo.js 中的开关逻辑及 console-demo.css 中的弹窗样式。
 内嵌页面按 Esc 时向父窗口发送仅含 type: gdev-fortune:escape 的通知，不携带用户数据。
 因为宿主域名不固定，通知使用通配目标；宿主必须同时校验 event.source 是自己的 iframe.contentWindow、
-event.origin 等于 iframe URL 的 origin，以及消息类型，才能执行关闭。演示已包含这些校验。
+event.origin 等于 iframe URL 的 origin，以及消息类型，才能执行关闭。
 
 样式对比页：styles.html，预览框随内容和宽度自动调整高度，避免底部大块空白；不改变第三方 iframe 的高度设置。
 默认首页使用暗黑地牢，经典老黄历通过 ?theme=classic 选择；通过 ?theme=island、farm、dungeon、cyber、pixel、wasteland、steampunk

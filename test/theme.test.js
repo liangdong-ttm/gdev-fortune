@@ -1,9 +1,18 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 
 const source = readFileSync(new URL('../public/theme.js', import.meta.url), 'utf8');
+
+test('公开文件和入口不再包含公司控制台演示', () => {
+  for (const extension of ['html', 'css', 'js']) {
+    assert.equal(existsSync(new URL('../public/console-demo.' + extension, import.meta.url)), false);
+  }
+  for (const filename of ['../README.md', '../public/styles.html', '../public/embed.html']) {
+    assert.ok(!readFileSync(new URL(filename, import.meta.url), 'utf8').includes('console-demo'));
+  }
+});
 
 function resolveOptions(search) {
   const document = { documentElement: { dataset: { theme: 'dungeon' } } };
